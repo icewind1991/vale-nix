@@ -12,6 +12,7 @@ in
     sha256,
     owner ? "errata-ai",
     repo ? name,
+    rulesPath ? name, # Relative path to styles directory in repository
   }:
     stdenvNoCC.mkDerivation {
       name = "vale-style-${toLower name}";
@@ -24,7 +25,7 @@ in
 
       installPhase = ''
         mkdir $out
-        cp -r ${name} $out
+        cp -r ${rulesPath} $out
       '';
 
       passthru.packageName = name;

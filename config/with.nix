@@ -1,8 +1,15 @@
 {
-  writeShellScriptBin,
-  buildValeConfig,
   vale,
-}: config:
-writeShellScriptBin "vale" ''
-  ${vale}/bin/vale --config ${buildValeConfig config} $@
-''
+  buildValeConfig,
+  runCommand,
+}:
+config:
+runCommand "vale-with-config"
+  {
+    inherit vale;
+  }
+  ''
+    mkdir -p $out
+    cp -r ${vale}/* $out/
+    cp ${buildValeConfig config} $out/.vale.ini
+  ''

@@ -43,4 +43,21 @@
     rev = "v${version}";
     sha256 = "sha256-xNF7se2FwKgNe5KYx/zvGWpIwBsBADYGH4JV1lUww+Q=";
   };
+  redhat = builder rec {
+    name = "RedHat";
+    owner = "redhat-documentation";
+    repo = "vale-at-red-hat";
+    version = "597";
+    rev = "v${version}";
+    sha256 = "sha256-Y5TshFG8EfcsmhEqTljxkxb2hRmfem+0njQDa/mUhmw=";
+    rulesPath = ".vale/styles/RedHat/";
+  };
+  openly = builder rec {
+    name = "Openly";
+    owner = "ChrisChinchilla";
+    repo = "Openly";
+    version = "0.4.4";
+    rev = "${version}";
+    sha256 = "sha256-1Crs//34qFw45DO7IzksNXGDN1YJNqc6lPU9fuVwLQA=";
+  };
 }
